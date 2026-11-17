@@ -1,0 +1,7 @@
+# Bibliotecas do projeto Memora (Wokwi instala automaticamente)
+LiquidCrystal I2C
+RTClib
+Adafruit BusIO
+DHT sensor library
+Adafruit Unified Sensor
+ESP32Servo
