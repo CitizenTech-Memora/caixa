@@ -64,6 +64,7 @@ A caixa funciona como uma **máquina de 7 estados**:
 > Simulação montada no **Wokwi** com ESP32. Cada compartimento tem um **servo** (a trava), um **LDR** (que percebe se o remédio está lá) e um **LED** (que mostra qual dose tomar). O RTC DS1307 guarda a hora, o DHT22 mede a temperatura e o LCD 16x2 mostra as mensagens.
 
 🔗 [Acessar simulação no Wokwi](https://wokwi.com/projects/480810351690378241)
+
 [![Assista no YouTube](https://img.shields.io/badge/YouTube-Assistir%20Apresenta%C3%A7%C3%A3o-red?style=for-the-badge&logo=youtube)](https://youtu.be/SvAzF9D5hhs?si=AlnR1PwxQ8Fv_h8w)
 
 ### Componentes
