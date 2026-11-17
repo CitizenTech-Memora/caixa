@@ -1,0 +1,575 @@
+{
+  "version": 1,
+  "author": "Memora - FIAP Global Solution 2026.2",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -230,
+      "left": 150,
+      "attrs": {
+        "pins": "i2c"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": -200,
+      "left": 40,
+      "attrs": {
+        "volume": "0.2"
+      }
+    },
+    {
+      "type": "wokwi-ds1307",
+      "id": "rtc",
+      "top": 40,
+      "left": 230,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -10,
+      "left": 370,
+      "attrs": {
+        "temperature": "24",
+        "humidity": "55"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledVerde",
+      "top": -60,
+      "left": -260,
+      "attrs": {
+        "color": "limegreen",
+        "label": "Normal"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rVerde",
+      "top": 30,
+      "left": -270,
+      "attrs": {
+        "value": "220"
+      },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledAmarelo",
+      "top": -60,
+      "left": -210,
+      "attrs": {
+        "color": "yellow",
+        "label": "Temp."
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rAmarelo",
+      "top": 30,
+      "left": -220,
+      "attrs": {
+        "value": "220"
+      },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledVermelho",
+      "top": -60,
+      "left": -160,
+      "attrs": {
+        "color": "red",
+        "label": "Atraso"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rVermelho",
+      "top": 30,
+      "left": -170,
+      "attrs": {
+        "value": "220"
+      },
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnAbrir",
+      "top": 150,
+      "left": -280,
+      "attrs": {
+        "color": "green",
+        "label": "ABRIR",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnDemo",
+      "top": 150,
+      "left": -160,
+      "attrs": {
+        "color": "blue",
+        "label": "DEMO +tempo",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldrManha",
+      "top": 400,
+      "left": -330,
+      "attrs": {
+        "lux": "20"
+      }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servoManha",
+      "top": 470,
+      "left": -330,
+      "attrs": {
+        "hornColor": "#1E88E5"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldrTarde",
+      "top": 400,
+      "left": -60,
+      "attrs": {
+        "lux": "20"
+      }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servoTarde",
+      "top": 470,
+      "left": -60,
+      "attrs": {
+        "hornColor": "#1E88E5"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldrNoite",
+      "top": 400,
+      "left": 210,
+      "attrs": {
+        "lux": "20"
+      }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servoNoite",
+      "top": 470,
+      "left": 210,
+      "attrs": {
+        "hornColor": "#1E88E5"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledManha",
+      "top": 300,
+      "left": -320,
+      "attrs": {
+        "color": "limegreen",
+        "label": "Manhã"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rManha",
+      "top": 330,
+      "left": -280,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledTarde",
+      "top": 300,
+      "left": -50,
+      "attrs": {
+        "color": "yellow",
+        "label": "Tarde"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rTarde",
+      "top": 330,
+      "left": -10,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledNoite",
+      "top": 300,
+      "left": 220,
+      "attrs": {
+        "color": "blue",
+        "label": "Noite"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rNoite",
+      "top": 330,
+      "left": 260,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "esp:D25",
+      "ledVerde:A",
+      "green",
+      []
+    ],
+    [
+      "ledVerde:C",
+      "rVerde:1",
+      "black",
+      []
+    ],
+    [
+      "rVerde:2",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:D26",
+      "ledAmarelo:A",
+      "yellow",
+      []
+    ],
+    [
+      "ledAmarelo:C",
+      "rAmarelo:1",
+      "black",
+      []
+    ],
+    [
+      "rAmarelo:2",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:D27",
+      "ledVermelho:A",
+      "red",
+      []
+    ],
+    [
+      "ledVermelho:C",
+      "rVermelho:1",
+      "black",
+      []
+    ],
+    [
+      "rVermelho:2",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:D13",
+      "btnAbrir:2.r",
+      "green",
+      []
+    ],
+    [
+      "btnAbrir:1.l",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:RX2",
+      "btnDemo:2.r",
+      "blue",
+      []
+    ],
+    [
+      "btnDemo:1.l",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:D34",
+      "ldrManha:AO",
+      "gold",
+      []
+    ],
+    [
+      "esp:3V3",
+      "ldrManha:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "ldrManha:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D18",
+      "servoManha:PWM",
+      "orange",
+      []
+    ],
+    [
+      "esp:VIN",
+      "servoManha:V+",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "servoManha:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D35",
+      "ldrTarde:AO",
+      "gold",
+      []
+    ],
+    [
+      "esp:3V3",
+      "ldrTarde:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "ldrTarde:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:TX2",
+      "servoTarde:PWM",
+      "orange",
+      []
+    ],
+    [
+      "esp:VIN",
+      "servoTarde:V+",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "servoTarde:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:VP",
+      "ldrNoite:AO",
+      "gold",
+      []
+    ],
+    [
+      "esp:3V3",
+      "ldrNoite:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "ldrNoite:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D14",
+      "servoNoite:PWM",
+      "orange",
+      []
+    ],
+    [
+      "esp:VIN",
+      "servoNoite:V+",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "servoNoite:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D21",
+      "lcd:SDA",
+      "blue",
+      []
+    ],
+    [
+      "esp:D22",
+      "lcd:SCL",
+      "purple",
+      []
+    ],
+    [
+      "esp:VIN",
+      "lcd:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "lcd:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D21",
+      "rtc:SDA",
+      "blue",
+      []
+    ],
+    [
+      "esp:D22",
+      "rtc:SCL",
+      "purple",
+      []
+    ],
+    [
+      "esp:VIN",
+      "rtc:5V",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "rtc:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D4",
+      "dht:SDA",
+      "green",
+      []
+    ],
+    [
+      "esp:3V3",
+      "dht:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "dht:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D23",
+      "buzzer:2",
+      "orange",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "buzzer:1",
+      "black",
+      []
+    ],
+    [
+      "esp:D32",
+      "ledManha:A",
+      "green",
+      []
+    ],
+    [
+      "ledManha:C",
+      "rManha:1",
+      "black",
+      []
+    ],
+    [
+      "rManha:2",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:D33",
+      "ledTarde:A",
+      "yellow",
+      []
+    ],
+    [
+      "ledTarde:C",
+      "rTarde:1",
+      "black",
+      []
+    ],
+    [
+      "rTarde:2",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+    [
+      "esp:D19",
+      "ledNoite:A",
+      "blue",
+      []
+    ],
+    [
+      "ledNoite:C",
+      "rNoite:1",
+      "black",
+      []
+    ],
+    [
+      "rNoite:2",
+      "esp:GND.1",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
