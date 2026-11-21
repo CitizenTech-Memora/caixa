@@ -1,10 +1,26 @@
-> **Global Solution 2026.2 | CitizenTech** · **Disciplina:** Edge Computing & Computer Systems
+<div align="center">
 
 # 💊 Memora · Caixa de Remédios Inteligente
 
-Simulação no Wokwi da caixa do Memora, a parte que fica na casa da pessoa idosa e lembra, protege e avisa na hora de cada remédio.
+**A parte do Memora que fica na casa da pessoa idosa: lembra, protege e avisa na hora de cada remédio**
 
-## 📌 Descrição do projeto
+[![Simulação no Wokwi](https://img.shields.io/badge/Wokwi-Abrir%20simula%C3%A7%C3%A3o-2E7D32?style=for-the-badge&logo=arduino&logoColor=white)](https://wokwi.com/projects/480810351690378241)
+[![Apresentação no YouTube](https://img.shields.io/badge/YouTube-Assistir%20apresenta%C3%A7%C3%A3o-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/SvAzF9D5hhs)
+
+![ESP32](https://img.shields.io/badge/ESP32-E7352C?style=flat-square&logo=espressif&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![Wokwi](https://img.shields.io/badge/Wokwi-2E7D32?style=flat-square)
+![Funciona offline](https://img.shields.io/badge/funciona-sem%20internet-6E4BA8?style=flat-square)
+
+<sub>Edge Computing & Computer Systems · Global Solution 2026.2 · CitizenTech · FIAP</sub>
+
+<img src="./circuito.png" alt="Circuito da caixa no Wokwi" width="100%" />
+
+</div>
+
+---
+
+## Sobre o projeto
 
 Para quem tem Alzheimer, o remédio traz duas dúvidas todos os dias: *"já está na hora?"* e *"será que eu já tomei?"*. Esquecer a dose atrapalha o tratamento, e tomar duas vezes pode ser perigoso. Enquanto isso, a família, muitas vezes longe, fica sem saber o que aconteceu.
 
@@ -20,7 +36,7 @@ O objetivo é simples: que a pessoa idosa tome o remédio certo, na hora certa, 
 
 ---
 
-## ⏰ Horários e limites
+## Horários e limites
 
 | Parâmetro | Valor | Por quê |
 |---|---|---|
@@ -32,7 +48,7 @@ O objetivo é simples: que a pessoa idosa tome o remédio certo, na hora certa, 
 
 ---
 
-## 🔴 Lógica de estados
+## Lógica de estados
 
 A caixa funciona como uma **máquina de 7 estados**:
 
@@ -57,15 +73,9 @@ A caixa funciona como uma **máquina de 7 estados**:
 
 ---
 
-## 🔌 Circuito
+## Circuito
 
-![Circuito do projeto no Wokwi](./circuito.png)
-
-> Simulação montada no **Wokwi** com ESP32. Cada compartimento tem um **servo** (a trava), um **LDR** (que percebe se o remédio está lá) e um **LED** (que mostra qual dose tomar). O RTC DS1307 guarda a hora, o DHT22 mede a temperatura e o LCD 16x2 mostra as mensagens.
-
-🔗 [Acessar simulação no Wokwi](https://wokwi.com/projects/480810351690378241)
-
-[![Assista no YouTube](https://img.shields.io/badge/YouTube-Assistir%20Apresenta%C3%A7%C3%A3o-red?style=for-the-badge&logo=youtube)](https://youtu.be/SvAzF9D5hhs?si=AlnR1PwxQ8Fv_h8w)
+Simulação montada no **Wokwi** com ESP32. Cada compartimento tem um **servo** (a trava), um **LDR** (que percebe se o remédio está lá) e um **LED** (que mostra qual dose tomar). O RTC DS1307 guarda a hora, o DHT22 mede a temperatura e o LCD 16x2 mostra as mensagens.
 
 ### Componentes
 
@@ -90,9 +100,9 @@ Bibliotecas: **LiquidCrystal I2C**, **RTClib**, **DHT sensor library** (Adafruit
 
 ---
 
-## ▶️ Como executar
+## Como executar
 
-**Wokwi**
+### No Wokwi
 
 1. Acesse a [simulação no Wokwi](https://wokwi.com/projects/480810351690378241) e clique em Play.
 2. A simulação começa às **07:55** em **modo demo**: cada segundo real vale um minuto, então a dose da manhã chega em poucos segundos.
@@ -102,7 +112,8 @@ Bibliotecas: **LiquidCrystal I2C**, **RTClib**, **DHT sensor library** (Adafruit
 6. Para testar o **alerta de temperatura**, clique no DHT22 e suba a temperatura acima de 30 °C.
 7. Use o botão azul **DEMO** ou os comandos abaixo para pular para a próxima dose.
 
-**Para montar o projeto do zero no Wokwi**
+<details>
+<summary><b>Montar o projeto do zero no Wokwi</b></summary>
 
 1. Acesse [wokwi.com](https://wokwi.com), faça login e crie um projeto **ESP32**.
 2. Substitua o `sketch.ino` pelo conteúdo de `caixa-memora.ino`.
@@ -110,13 +121,18 @@ Bibliotecas: **LiquidCrystal I2C**, **RTClib**, **DHT sensor library** (Adafruit
 4. Crie o arquivo `libraries.txt` com o conteúdo deste repositório (as bibliotecas são instaladas automaticamente).
 5. Clique em Play.
 
-**Hardware físico**
+</details>
+
+<details>
+<summary><b>Rodar no hardware físico</b></summary>
 
 1. Monte o circuito conforme o esquema em `circuito.png`.
 2. Instale o suporte ao **ESP32** e as bibliotecas listadas acima no Arduino IDE.
 3. Abra o arquivo `caixa-memora.ino` e, para usar o horário real, troque `MODO_DEMO` para `false`.
 4. Selecione a placa **ESP32 Dev Module** e a porta correta em `Ferramentas`, depois clique em Upload (Ctrl+U).
 5. Abra o Monitor Serial (115200 baud) para acompanhar os eventos.
+
+</details>
 
 ### Comandos no Serial Monitor
 
@@ -130,7 +146,7 @@ Bibliotecas: **LiquidCrystal I2C**, **RTClib**, **DHT sensor library** (Adafruit
 
 ---
 
-## ⚙️ Ajuste dos limiares
+## Ajuste dos limites
 
 No arquivo `caixa-memora.ino`, as constantes abaixo controlam os horários e os limites de cada estado:
 
@@ -158,10 +174,10 @@ const int LUZ_VAZIO = 1000;      // leitura baixa = claro = remedio retirado
 
 ---
 
-## 🗂️ Estrutura do repositório
+## Estrutura
 
 ```
-caixa-memora/
+caixa/
 ├── caixa-memora.ino ← Código-fonte da caixa
 ├── diagram.json ← Circuito do Wokwi
 ├── libraries.txt ← Bibliotecas usadas no Wokwi
@@ -171,12 +187,12 @@ caixa-memora/
 
 ---
 
-## 👩‍💻 Equipe
+## Equipe
 
-| Integrante | RM |
+| Nome | RM |
 |---|---|
 | Eric Kang | 572575 |
-| Guilherme Tome Nogueira | 570144 |
+| Guilherme Tomé Nogueira | 570144 |
 | Lucas de Andrade Astorini | 569119 |
 | Sabrina Lopes da Silva | 571870 |
 | Sofia Satomi Hagio | 569120 |
